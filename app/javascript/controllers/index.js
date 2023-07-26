@@ -9,3 +9,6 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import ModalFormController from "./modal_form_controller"
+application.register("modal-form", ModalFormController)
