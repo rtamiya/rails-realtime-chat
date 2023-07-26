@@ -4,15 +4,12 @@ class MessagesController < ApplicationController
     @message =  Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
-    if @message.save
-      ChatroomChannel.broadcast_to(
-        @chatroom,
-        "You've got mail!!"
-      )
-      redirect_to chatroom_path(@chatroom)
-    else
-      render 'chatrooms/show', status: :unprocessable_entity
-    end
+    @message.save
+    ChatroomChannel.broadcast_to(
+      @chatroom,
+      render_to_string(partial: 'messages/message', locals: { message: @message })
+    )
+    head :ok
   end
 
   private
