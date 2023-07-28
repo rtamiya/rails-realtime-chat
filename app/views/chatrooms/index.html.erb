@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Welcome to Realtime Chat</h1>
+  <h1>Realtime Chat</h1>
 
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -9,7 +9,12 @@
   <!-- Modal -->
   <%= render partial: "modal", locals: {chatroom: @chatroom} %>
 
+
+  <!-- list of existing chatrooms -->
+  <div class="mt-3">
+  <h2>Chatrooms</h2>
   <% @chatrooms.each do |chatroom|%>
     <p><%= link_to "##{chatroom.name}", chatroom_path(chatroom) %></p>
   <% end %>
+  </div>
 </div>
