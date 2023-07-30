@@ -84,4 +84,4 @@ production:
   database: rails_realtime_chat_production
   username: rails_realtime_chat
   password: <%= ENV["RAILS_REALTIME_CHAT_DATABASE_PASSWORD"] %>
-  url: <%= ENV['DATABASE_URL']
+  url: <%= ENV['DATABASE_URL'] %>
